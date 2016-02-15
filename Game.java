@@ -105,7 +105,11 @@ public class Game{
             showRule();
             userString = input.next();
             index++;
-        }while(!userString.equals("quit") && !userString.equals("Quit"));
+        }while(!userString.equals("quit") && !userString.equals("Quit") && index < 52);
+        
+        if(index == 52){
+            playAgain();
+        }//close if
     }//close showDeck method
     
     public void menu(){
@@ -128,4 +132,26 @@ public class Game{
             menu();
         }//close else
     }//close menu method
+    
+    public void playAgain(){
+        System.out.println("You have finished the deck.");
+        System.out.println("Would you like to play again?");
+        userString = input.next();
+        
+        if(userString.equals("yes") || userString.equals("Yes") || userString.equals("YES") || userString.equals("Y") || userString.equals("y")){
+            deck.shuffleDeck();
+            index = 0;
+            showDeck();
+        }//close if
+        else if(userString.equals("no") || userString.equals("No") || userString.equals("NO") || userString.equals("N") || userString.equals("n")){
+            System.out.println("Thanks for playing!");
+        }//close else if
+        else{
+            System.out.println("************************************************************");
+            System.out.println("Error: You entered something incorrectly.");
+            System.out.println("Please enter some form of \"yes\" or \"no\"");
+            System.out.println("************************************************************");
+            playAgain();
+        }//close else
+    }//close playAgain
 }//close Game Class

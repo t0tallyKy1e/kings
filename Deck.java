@@ -46,11 +46,15 @@ public class Deck{
     public void shuffleDeck(){
         int randInt = 0;
         int counter = 0;
+        Card tempCard;
         
         for(int end = DECKSIZE; end > 0; end--){
             randInt = randGen.nextInt(end);
+            tempCard = deck[randInt];
+            
             shuffledDeck[counter] = deck[randInt];
             deck[randInt] = deck[end - 1];
+            deck[end-1] = tempCard;
             counter++;
         }//close end for
     }//close shuffleDeck
