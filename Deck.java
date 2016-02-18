@@ -20,15 +20,13 @@ public class Deck{
     
     private Random randGen = new Random(System.currentTimeMillis());
     
-    //array of ints to show available elements in an array for shuffling
     
     //default Constructor
     public Deck(){
         int value = 0;
         int suit = 0;
         
-        //!!!!!!!WRITE ON PAPER TO SEE HOW THIS IS ACTUALLY WORKING!!!!!!!!!!
-        for(int i = 0; i < DECKSIZE; i++){//add 1 to deck size to get 52 cards
+        for(int i = 0; i < DECKSIZE; i++){
             value = i % 13;
             suit = i / 13;
             
